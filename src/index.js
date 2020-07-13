@@ -8,7 +8,11 @@ import './helpers/initializeApp.js'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
-serviceWorker.unregister()
+serviceWorker.register({
+  onUpdate() {
+    window.location.reload()
+  }
+})
 
 if (module.hot) {
   module.hot.accept()
